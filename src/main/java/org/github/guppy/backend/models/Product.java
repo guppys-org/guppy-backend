@@ -2,6 +2,7 @@ package org.github.guppy.backend.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ public class Product {
 
     @Id
     @GeneratedValue
+    @Column(name="id", columnDefinition="Varchar(36)")
+    @Type(type = "uuid-char")
     private UUID id;
 
     @Column
