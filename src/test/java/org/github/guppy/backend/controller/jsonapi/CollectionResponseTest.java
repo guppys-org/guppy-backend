@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CollectionResponseTest {
 
     @Test
-    public void textExampleController() throws JsonProcessingException {
+    public void testCollectionResponse() throws JsonProcessingException {
         // Given
         List<String> body = new ArrayList<>();
         body.add("Element 1");
