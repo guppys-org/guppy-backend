@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
-    @GetMapping("v1/products")
+    @GetMapping("/v1/products")
     public ResponseEntity<String> products() {
         return ResponseEntity.ok("Here you have your products. What where you expecting, unicorns?");
     }
