@@ -24,7 +24,7 @@ class ProductControllerTest {
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 
         //When
-        ResponseEntity<String> responseEntity = controller.products();
+        ResponseEntity<String> responseEntity = controller.getProducts();
 
         //Then
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
