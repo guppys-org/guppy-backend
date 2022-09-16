@@ -5,7 +5,13 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: guppy
+          POSTGRES_USER: username
+          POSTGRES_PASSWORD: password
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 18
