@@ -16,7 +16,11 @@ public class CollectionResponse<T> {
         this.data = data;
     }
 
-    public static <R> CollectionResponse<R> of(List<R> data){
+    public List<T> getData() {
+        return data;
+    }
+
+    public static <R> CollectionResponse<R> of(List<R> data) {
         return new CollectionResponse<>(data);
     }
 }
