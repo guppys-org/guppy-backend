@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-
 public class ProductService {
+
     ProductRepository productRepository;
 
     public ProductService(@Autowired ProductRepository productRepository){
         this.productRepository = productRepository;
     }
 
-    public List<Product> GetProducts(){
-        List<Product> list_of_products = new ArrayList<>();
+    public List<Product> getProducts(){
+        List<Product> listOfProducts = new ArrayList<>();
         Iterable<Product> values = productRepository.findAll();
-        values.forEach(value -> list_of_products.add(value));
-        return list_of_products;
+        values.forEach(listOfProducts::add);
+        return listOfProducts;
     }
 }
