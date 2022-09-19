@@ -5,9 +5,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -18,11 +15,7 @@ class ProductControllerTest {
     private ProductController controller;
 
     @Test
-    public void textExampleController(){
-        //Given
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
-
+    public void textExampleController() {
         //When
         ResponseEntity<String> responseEntity = controller.getProducts();
 
