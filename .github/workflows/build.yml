@@ -12,6 +12,8 @@ jobs:
           POSTGRES_DB: guppy
           POSTGRES_USER: username
           POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 18
@@ -28,4 +30,4 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
-          arguments: test
+          arguments: build
