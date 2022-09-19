@@ -26,7 +26,7 @@ class ProductControllerTest {
     private ProductController controller;
 
     @Test
-    public void textExampleController(){
+    public void getProductsTest_retrievedProducts(){
         //Given
         List<Product> serviceResult = new ArrayList<>();
         serviceResult.add(new Product());
