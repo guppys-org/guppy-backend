@@ -10,12 +10,15 @@ import java.util.List;
 
 @Service
 public class BusinessService {
-    @Autowired
-    private BusinessRepository businessRepository;
+
+    BusinessRepository businessRepository;
+
+    public BusinessService(@Autowired BusinessRepository businessRepository) {
+        this.businessRepository = businessRepository;
+    }
 
 
-
-    public List<Business> getBusiness(){
+    public List<Business> getBusiness() {
         List<Business> businesses = new ArrayList<Business>();
         Iterable<Business> result = businessRepository.findAll();
         result.forEach(businesses::add);
