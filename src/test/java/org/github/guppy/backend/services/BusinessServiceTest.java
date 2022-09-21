@@ -49,7 +49,7 @@ public class BusinessServiceTest {
         List<Business> business = businessService.getBusiness();
 
         //Then
-        assertThat(1).isEqualTo(repositoryResult.size());
+        assertThat(business.size()).isEqualTo(repositoryResult.size());
     }
 
 }
