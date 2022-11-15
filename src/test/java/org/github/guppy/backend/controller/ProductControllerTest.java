@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.when;
@@ -28,12 +29,13 @@ class ProductControllerTest {
     @Test
     public void getProductsTest_retrievedProducts(){
         //Given
+        UUID businessId = UUID.randomUUID();
         List<Product> serviceResult = new ArrayList<>();
         serviceResult.add(new Product());
-        when(productService.getProducts()).thenReturn(serviceResult);
+        when(productService.getProducts(businessId)).thenReturn(serviceResult);
 
         //When
-        ResponseEntity<CollectionResponse<Product>> responseEntity = controller.getProducts();
+        ResponseEntity<CollectionResponse<Product>> responseEntity = controller.getProducts(businessId);
 
         //Then
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
