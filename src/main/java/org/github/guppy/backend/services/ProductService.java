@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -18,10 +19,8 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getProducts(){
-        List<Product> listOfProducts = new ArrayList<>();
-        Iterable<Product> values = productRepository.findAll();
-        values.forEach(listOfProducts::add);
-        return listOfProducts;
+    public List<Product> getProducts(UUID businessId){
+        return productRepository.getByBusinessId(businessId);
     }
+
 }

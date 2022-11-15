@@ -6,9 +6,11 @@ import org.github.guppy.backend.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class ProductController {
@@ -20,7 +22,13 @@ public class ProductController {
     }
 
     @GetMapping("/v1/products")
-    public ResponseEntity<CollectionResponse<Product>> getProducts() {
-        return ResponseEntity.ok(CollectionResponse.of(productService.getProducts()));
+    public ResponseEntity<CollectionResponse<Product>> getProducts(@RequestParam(name = "businessId") UUID businessId) {
+        return ResponseEntity.ok(CollectionResponse.of(productService.getProducts(businessId)));
     }
+
+
+
+
+
+
 }
